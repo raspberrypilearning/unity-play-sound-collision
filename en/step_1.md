@@ -1,59 +1,64 @@
-## Introduction
+Navigate to your 'Scripts' folder and choose 'Create -> C# Script'.
 
-Add project description here. What will learners be making? Broadly what skills will they be learning?
+Name the Script `PlaySound`.
 
-### What you will make
+Open the `PlaySound` script.
 
---- no-print ---
-Add instructions for interacting with the embedded content here.
+Enter the following code:
 
-<div class="scratch-preview">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/160619869/?autostart=false" frameborder="0"></iframe>
-</div>
---- /no-print ---
-
---- print-only ---
-![Complete project](images/showcase_static.png)
---- /print-only ---
-
---- collapse ---
+--- code ---
 ---
-title: What you will need
----
-### Hardware
-
-+ A computer or tablet capable of running Scratch 3
-
-### Software
-
-+ Scratch 3 (either [online](https://scratch.mit.edu/){:target="_blank"} or [offline](https://scratch.mit.edu/download){:target="_blank"})
-+ Python 3
-+ This project can be completed in a web browser using [trinket.io](https://trinket.io/)
-
-### Downloads
-
-+ Download the project [starter file](https://rpf.io/p/en/projectName-go){:target="_blank"} if working offline
-
---- /collapse ---
-
---- collapse ---
----
-title: What you will learn
+language: cs
+filename: PlaySound.cs
+line_numbers: true
+line_number_start: 1
+line_highlights: 
 ---
 
-+ Learning objective 1
-+ Learning objective 2
-+ Learning objective 3
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
---- /collapse ---
+public class PlaySound : MonoBehaviour
+{
+    AudioSource audioSource;
 
---- collapse ---
----
-title: Additional information for educators
----
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-You can download the completed project [here](https://rpf.io/p/en/projectName-get){:target="_blank"}.
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            audioSource = this.gameObject.GetComponent<AudioSource>();
+            audioSource.Play();
+        }
+    }
+}
 
---- /collapse ---
+--- /code ---
+
+**Save** and return to Unity.
+
+Make sure that your ball is tagged with the 'Player' tag.
+
+Select the GameObject that you wish to add a sound to.
+
+Drag the `PlaySound` script onto the 'Add Component' area of the 'Inspector' window.
+
+In the 'Inspector' window, click on 'Add Component'.
+
+Add an 'AudioSource' component.
+
+Uncheck the 'Play On Awake' box.
+
+Drag your chosen sound onto the 'Audio Source'.
